@@ -36,6 +36,9 @@
     <ClCompile Include="..\Classes\Game\GameScene\GS_Gameplay.cpp">
       <Filter>src\Game\GameScene</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Game\Model\Ninja\Ninja.cpp">
+      <Filter>src\Game\Model\Ninja</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -50,11 +53,17 @@
     <ClInclude Include="..\Classes\Define.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Game\Model\Model.h">
-      <Filter>src\Game\Model</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Game\GameScene\GS_Gameplay.h">
       <Filter>src\Game\GameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Singleton.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Model\Ninja\Ninja.h">
+      <Filter>src\Game\Model\Ninja</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Model\Model.h">
+      <Filter>src\Game\Model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
