@@ -10,6 +10,18 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Game">
+      <UniqueIdentifier>{97194683-4918-4479-8fa5-1fabdb912b11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Game\GameScene">
+      <UniqueIdentifier>{edc3c2d8-4bb2-46c0-b2fd-5f6202fb6188}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Game\Model">
+      <UniqueIdentifier>{024303fd-08d4-405b-bf20-081ecc6bdb6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Game\Model\Ninja">
+      <UniqueIdentifier>{93d87693-d2fc-4a11-9df5-4f625cf576df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -21,6 +33,9 @@
     <ClCompile Include="..\Classes\HelloWorldScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Game\GameScene\GS_Gameplay.cpp">
+      <Filter>src\Game\GameScene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -31,6 +46,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\HelloWorldScene.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Define.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Model\Model.h">
+      <Filter>src\Game\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\GameScene\GS_Gameplay.h">
+      <Filter>src\Game\GameScene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
