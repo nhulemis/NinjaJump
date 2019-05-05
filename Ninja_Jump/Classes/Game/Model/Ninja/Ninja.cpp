@@ -20,25 +20,26 @@ void Ninja::CreateAnimate()
 			break;
 		case Resources::k_idel:
 		{
-			m_idleAnimate = res->CreateAnimate("Idle_%d.png", 10, 0.15);
+
+			m_animate.insert(StateNinja::k_idle, res->CreateAnimate("Idle_%d.png", 10, 0.15));
 			res->SetStateAnimate(Resources::k_jump);
 		}
 		break;
 		case Resources::k_jump:
 		{
-			m_jumpAnimate = res->CreateAnimate("Jump_%d.png", 10, 0.15);
+			m_animate.insert(StateNinja::k_jump, res->CreateAnimate("Jump_%d.png", 10, 0.15));
 			res->SetStateAnimate(Resources::k_jumpThrow);
 		}
 		break;
 		case Resources::k_jumpThrow:
 		{
-			m_jumpThrowAnimate = res->CreateAnimate("Jump_Throw_%d.png", 10, 0.15);
+			m_animate.insert(StateNinja::k_jumpThrow, res->CreateAnimate("Jump_Throw_%d.png", 10, 0.15));
 			res->SetStateAnimate(Resources::k_dead);
 		}
 		break;
 		case Resources::k_dead:
 		{
-			m_deadAnimate = res->CreateAnimate("Dead_%d.png", 10, 0.15);
+			m_animate.insert(StateNinja::k_dead, res->CreateAnimate("Dead_%d.png", 10, 0.15));
 			res->SetStateAnimate(Resources::k_doneLoad);
 		}
 		break;
@@ -51,13 +52,40 @@ void Ninja::CreateAnimate()
 	}
 }
 
+void Ninja::SetChangedState(const bool & isChanged)
+{
+	m_isChangedState = isChanged;
+}
+
+bool Ninja::HasChangedState() const
+{
+	return m_isChangedState;
+}
+
+void Ninja::IdleState()
+{
+	m_sprite->stopAllActions();
+	auto rep = RepeatForever::create(m_animate.at(StateNinja::k_idle));
+	m_sprite->runAction(rep);
+}
+
+void Ninja::RunAction()
+{
+	m_sprite->stopAllActions();
+	auto seq = Sequence::create(m_animate.at(StateNinja::k_jumpThrow),
+		CallFuncN::create(CC_CALLBACK_0(Ninja::IdleState, this)),
+		nullptr
+		);
+	m_sprite->runAction(seq);
+}
+
 Ninja::~Ninja()
 {
 }
 
 void Ninja::OnInit(Scene* scene)
 {
-	m_state = StateNinja::none;
+	m_state = StateNinja::k_idle;
 	auto res = Resources::GetInstance();
 
 	//1st create character
@@ -65,26 +93,45 @@ void Ninja::OnInit(Scene* scene)
 	//2nd create animate
 	CreateAnimate();
 
-	m_sprite = Sprite::create("ninjagirl/Idle__000.png");
-	m_sprite->setPosition(Vec2(150, 150));
-	auto PerTen = Director::getInstance()->getVisibleSize().height *2 / 10;
-	auto objectHeight = m_sprite->getContentSize().height;
-	auto onePerTenScreen = (PerTen) / objectHeight;
-	//CCLOG("one per ten screen : %f", onePerTenScreen);
-	m_sprite->setScale(onePerTenScreen);
-	scene->addChild(m_sprite, 1);
-
-	auto rep = RepeatForever::create(m_idleAnimate);
-	
-	m_sprite->runAction(rep);
-	
-
+	// init sprite for ninja
+	{
+		m_sprite = Sprite::create("ninjagirl/Idle__000.png");
+		m_sprite->setPosition(Vec2(150, 150));
+		auto PerTen = Director::getInstance()->getVisibleSize().height * 2 / 10;
+		auto objectHeight = m_sprite->getContentSize().height;
+		auto onePerTenScreen = (PerTen) / objectHeight;
+		//CCLOG("one per ten screen : %f", onePerTenScreen);
+		m_sprite->setScale(onePerTenScreen);
+		
+		scene->addChild(m_sprite, 1);
+	}
+	IdleState();
+	SetChangedState(false);
 
 }
 
 void Ninja::OnUpdate()
 {
+	if (HasChangedState())
+	{
+		SetChangedState(false);
+		RunAction();
+	}
+	if (true)
+	{
 
+	}
+}
+
+void Ninja::SetStateNinja(const StateNinja & state)
+{
+	m_state = state;
+}
+
+void Ninja::SwitchState()
+{
+	SetStateNinja(Ninja::k_jump);
+	SetChangedState(true);
 }
 
 

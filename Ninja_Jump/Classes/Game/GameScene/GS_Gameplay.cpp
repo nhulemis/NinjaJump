@@ -50,7 +50,7 @@ void GS_Gameplay::onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event)
 {
 	if ((double)keyCode == KeyCode::k_space)
 	{
-		CCLOG("Release keyboad : %d", keyCode);
+		m_ninja->SwitchState();
 	}
 }
 
