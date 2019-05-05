@@ -22,6 +22,9 @@
     <Filter Include="src\Game\Model\Ninja">
       <UniqueIdentifier>{93d87693-d2fc-4a11-9df5-4f625cf576df}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Resources">
+      <UniqueIdentifier>{742827eb-0a2d-47e2-a12d-2514945db222}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -38,6 +41,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Game\Model\Ninja\Ninja.cpp">
       <Filter>src\Game\Model\Ninja</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Resource\Resources.cpp">
+      <Filter>src\Resources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +70,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Game\Model\Model.h">
       <Filter>src\Game\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Resource\Resources.h">
+      <Filter>src\Resources</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

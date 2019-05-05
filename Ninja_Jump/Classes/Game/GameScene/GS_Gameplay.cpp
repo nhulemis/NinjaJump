@@ -30,6 +30,8 @@ bool GS_Gameplay::init()
 
 	m_ninja =Ninja::GetInstance();
 	m_ninja->SetVisible(true);
+	m_ninja->OnInit();
+	
 
 	scheduleUpdate();
 	return true;

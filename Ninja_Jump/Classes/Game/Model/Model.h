@@ -16,6 +16,7 @@ public:
 	{
 		return m_isVisible;
 	}
+
 protected:
 	Vec2					m_position;
 	bool					m_isVisible;
