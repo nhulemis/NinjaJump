@@ -30,7 +30,7 @@ bool GS_Gameplay::init()
 
 	m_ninja =Ninja::GetInstance();
 	m_ninja->SetVisible(true);
-	m_ninja->OnInit();
+	m_ninja->OnInit(this);
 	
 
 	scheduleUpdate();
@@ -57,6 +57,7 @@ void GS_Gameplay::onKeyReleased(EventKeyboard::KeyCode keyCode, Event* event)
 void GS_Gameplay::update(float delta)
 {
 	//CCLOG("updating");
+	m_ninja->OnUpdate();
 }
 
 void GS_Gameplay::Destroy()

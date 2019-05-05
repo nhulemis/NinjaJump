@@ -15,11 +15,28 @@ public:
 		k_girl
 	};
 
+	enum StateLoadAnimate
+	{
+		NONE =0,
+		k_idel,
+		k_jump,
+		k_jumpThrow,
+		k_dead,
+		k_doneLoad
+	};
+
 	~Resources();
-	void CreateCharacter(const TypeCharacter& type);
+	void					CreateCharacter(const TypeCharacter& type);
+	StateLoadAnimate		GetStateLoadAnimate()const;
+
+	Animate*				CreateAnimate(std::string name, int numFrames, float delay);
+	void					SetStateAnimate(const StateLoadAnimate& state);
 
 private:
 	Resources() {}
 
-	cocos2d::Vector<cocos2d::SpriteFrame*> m_framesIdle;
+
+	StateLoadAnimate		m_stateAnimate;
+	
+	
 };

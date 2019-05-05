@@ -6,7 +6,7 @@ USING_NS_CC;
 class Model
 {
 public:
-	virtual void			OnInit() = 0;
+	virtual void			OnInit(Scene* scene) = 0;
 	virtual void			OnUpdate() = 0;
 	virtual void			SetVisible(bool visible)
 	{
