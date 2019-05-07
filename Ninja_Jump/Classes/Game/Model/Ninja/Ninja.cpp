@@ -96,15 +96,23 @@ void Ninja::OnInit(Scene* scene)
 	// init sprite for ninja
 	{
 		m_sprite = Sprite::create("ninjagirl/Idle__000.png");
-		m_sprite->setPosition(Vec2(150, 150));
+		SetPosition(Vec2(150, 150));
+		m_sprite->setPosition(GetPosition());
+
+		//Set physics body for ninja
+		{
+			auto bodyNinja = PhysicsBody::createBox(m_sprite->getContentSize() - Size(100, 0), PHYSICSBODY_MATERIAL_DEFAULT);
+			bodyNinja->setDynamic(true);
+			m_sprite->addComponent(bodyNinja);
+		}
 		auto PerTen = Director::getInstance()->getVisibleSize().height * 2 / 10;
 		auto objectHeight = m_sprite->getContentSize().height;
 		auto onePerTenScreen = (PerTen) / objectHeight;
 		//CCLOG("one per ten screen : %f", onePerTenScreen);
 		m_sprite->setScale(onePerTenScreen);
-		
 		scene->addChild(m_sprite, 1);
 	}
+
 	IdleState();
 	SetChangedState(false);
 
@@ -115,12 +123,10 @@ void Ninja::OnUpdate()
 	if (HasChangedState())
 	{
 		SetChangedState(false);
+		SetPosition(GetPosition() + Vec2(50, 50));
 		RunAction();
 	}
-	if (true)
-	{
-
-	}
+	
 }
 
 void Ninja::SetStateNinja(const StateNinja & state)

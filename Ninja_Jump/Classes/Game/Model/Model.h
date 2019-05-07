@@ -17,8 +17,21 @@ public:
 		return m_isVisible;
 	}
 
+	virtual void			SetPosition(const Vec2& position)
+	{
+		m_position = position;
+		if (!m_sprite)
+		{
+			m_sprite->setPosition(m_position);
+		}
+	}
+
+	virtual Vec2			GetPosition() const
+	{
+		return m_position;
+	}
 protected:
 	Vec2					m_position;
 	bool					m_isVisible;
-	Sprite					m_sprite;
+	Sprite*					m_sprite;
 };

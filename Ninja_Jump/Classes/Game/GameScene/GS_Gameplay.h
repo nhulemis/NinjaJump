@@ -16,6 +16,9 @@ class GS_Gameplay : public cocos2d::Scene
 {
 private:
 	Ninja*							m_ninja;
+	PhysicsWorld*					m_physicsWorld;
+	void							SetPhysicsWorld(PhysicsWorld* physicworld);
+	bool							onContactBegin(PhysicsContact & contact);
 public:
 	~GS_Gameplay();
 

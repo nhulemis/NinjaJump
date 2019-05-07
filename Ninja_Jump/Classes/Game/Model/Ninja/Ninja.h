@@ -34,7 +34,6 @@ private:
 	void					IdleState();
 	void					RunAction();
 
-	Sprite*					m_sprite;
 	bool					m_isChangedState;
 
 	Vec2					m_position;
