@@ -2,6 +2,7 @@
 
 #include "cocos2d.h"
 #include "Game\Model\Ninja\Ninja.h"
+#include "Game\Model\Background\Background.h"
 
 #include "Define.h"
 
@@ -16,6 +17,7 @@ class GS_Gameplay : public cocos2d::Scene
 {
 private:
 	Ninja*							m_ninja;
+	Background*						m_Background;
 public:
 	~GS_Gameplay();
 

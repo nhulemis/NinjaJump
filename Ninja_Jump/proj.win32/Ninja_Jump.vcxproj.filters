@@ -25,6 +25,9 @@
     <Filter Include="src\Resources">
       <UniqueIdentifier>{742827eb-0a2d-47e2-a12d-2514945db222}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Game\Model\Background">
+      <UniqueIdentifier>{b1cd1f58-11d2-4e1f-b388-eb0b45a3fe21}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -44,6 +47,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Resource\Resources.cpp">
       <Filter>src\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Game\Model\Background\Background.cpp">
+      <Filter>src\Game\Model\Background</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +79,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Resource\Resources.h">
       <Filter>src\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Game\Model\Background\Background.h">
+      <Filter>src\Game\Model\Background</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

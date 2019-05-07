@@ -4,3 +4,7 @@
 #define SCREEN_W 800
 
 #define NUM_STATE 4
+
+/*BACKGROUND*/
+#define BG_IMG "background/backgroundGame.png"
+#define BG_SCROLL_SPEED 5

@@ -32,6 +32,7 @@ bool GS_Gameplay::init()
 	m_ninja->SetVisible(true);
 	m_ninja->OnInit(this);
 	
+	m_Background->OnInit(this);
 
 	scheduleUpdate();
 	return true;
@@ -58,6 +59,8 @@ void GS_Gameplay::update(float delta)
 {
 	//CCLOG("updating");
 	m_ninja->OnUpdate();
+
+	m_Background->OnUpdate();
 }
 
 void GS_Gameplay::Destroy()
