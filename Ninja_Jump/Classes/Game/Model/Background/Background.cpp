@@ -1,5 +1,4 @@
 #include "Background.h"
-#include "Define.h"
 
 Background::Background()
 {

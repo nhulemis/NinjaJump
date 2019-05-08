@@ -32,6 +32,7 @@ bool GS_Gameplay::init()
 	m_ninja->SetVisible(true);
 	m_ninja->OnInit(this);
 	
+	m_Background = new Background();
 	m_Background->OnInit(this);
 
 	scheduleUpdate();

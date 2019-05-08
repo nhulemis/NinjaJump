@@ -6,5 +6,5 @@
 #define NUM_STATE 4
 
 /*BACKGROUND*/
-#define BG_IMG "background/backgroundGame.png"
+#define BG_IMG "HelloWorld.png"
 #define BG_SCROLL_SPEED 5

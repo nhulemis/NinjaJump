@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Game\Model\Model.h"
 #include "cocos2d.h"
+#include "Define.h"
 
 USING_NS_CC;
 
