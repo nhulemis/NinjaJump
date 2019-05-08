@@ -6,7 +6,7 @@ Resources::~Resources()
 
 void Resources::CreateCharacter(const TypeCharacter & type)
 {
-	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("ninjagirl/girlninja.plist", "ninjagirl/girlninja.png");
+	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("ninjagirl/ninja_girl.plist", "ninjagirl/ninja_girl.png");
 	
 	//SetStateAnimate(k_idel);
 	//CreateAnimate("Idle_%d.png", 10, 0.15);
@@ -33,6 +33,7 @@ Animate* Resources::CreateAnimate(std::string name, int numFrames, float delay)
 	 }
 	
 	 return Animate::create(Animation::createWithSpriteFrames(frames, delay));
+
 	 
  }
 

@@ -25,6 +25,9 @@
     <Filter Include="src\Resources">
       <UniqueIdentifier>{742827eb-0a2d-47e2-a12d-2514945db222}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\PhysicsBody">
+      <UniqueIdentifier>{6d80c01f-dac3-47d0-aa97-0785747a0310}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -44,6 +47,9 @@
     </ClCompile>
     <ClCompile Include="..\Classes\Resource\Resources.cpp">
       <Filter>src\Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PhysicsBody\MyBodyParser.cpp">
+      <Filter>src\PhysicsBody</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +79,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Resource\Resources.h">
       <Filter>src\Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PhysicsBody\MyBodyParser.h">
+      <Filter>src\PhysicsBody</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

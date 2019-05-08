@@ -1,6 +1,7 @@
 #include "Ninja.h"
 #include "Resource\Resources.h"
 #include "Define.h"
+#include "PhysicsBody\MyBodyParser.h"
 
 Ninja::Ninja()
 {
@@ -72,11 +73,14 @@ void Ninja::IdleState()
 void Ninja::RunAction()
 {
 	m_sprite->stopAllActions();
-	auto seq = Sequence::create(m_animate.at(StateNinja::k_jumpThrow),
-		CallFuncN::create(CC_CALLBACK_0(Ninja::IdleState, this)),
+	auto seq = Sequence::create(m_animate.at(StateNinja::k_jump),
+		//CallFuncN::create(CC_CALLBACK_0(Ninja::IdleState, this)),
 		nullptr
 		);
+	seq->setTag(StateNinja::k_jump);
 	m_sprite->runAction(seq);
+	
+
 }
 
 Ninja::~Ninja()
@@ -88,6 +92,8 @@ void Ninja::OnInit(Scene* scene)
 	m_state = StateNinja::k_idle;
 	auto res = Resources::GetInstance();
 
+	MyBodyParser::getInstance()->parseJsonFile("ninja_body/ninja_body.json");
+
 	//1st create character
 	res->CreateCharacter(Resources::TypeCharacter::k_girl);
 	//2nd create animate
@@ -95,17 +101,17 @@ void Ninja::OnInit(Scene* scene)
 
 	// init sprite for ninja
 	{
-		m_sprite = Sprite::create("ninjagirl/Idle__000.png");
+		m_sprite = Sprite::create("ninja_body/sprite_ninja.png");
 		SetPosition(Vec2(150, 150));
 		m_sprite->setPosition(GetPosition());
 
 		//Set physics body for ninja
 		{
-			auto bodyNinja = PhysicsBody::createBox(m_sprite->getContentSize() - Size(100, 0), PHYSICSBODY_MATERIAL_DEFAULT);
-			bodyNinja->setDynamic(true);
-			m_sprite->addComponent(bodyNinja);
+			auto bodyNinja  = MyBodyParser::getInstance()->bodyFormJson(m_sprite,"ninja_body", cocos2d::PhysicsMaterial(1, 1, 0));
+			bodyNinja->setDynamic(false);
+			m_sprite->setPhysicsBody(bodyNinja);
 		}
-		auto PerTen = Director::getInstance()->getVisibleSize().height * 2 / 10;
+		auto PerTen = Director::getInstance()->getVisibleSize().height *2 / 10;
 		auto objectHeight = m_sprite->getContentSize().height;
 		auto onePerTenScreen = (PerTen) / objectHeight;
 		//CCLOG("one per ten screen : %f", onePerTenScreen);
@@ -126,7 +132,7 @@ void Ninja::OnUpdate()
 		SetPosition(GetPosition() + Vec2(50, 50));
 		RunAction();
 	}
-	
+
 }
 
 void Ninja::SetStateNinja(const StateNinja & state)

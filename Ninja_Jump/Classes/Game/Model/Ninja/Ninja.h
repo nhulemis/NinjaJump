@@ -33,12 +33,13 @@ private:
 	bool					HasChangedState()const;
 	void					IdleState();
 	void					RunAction();
+	void					SetActionFinished(const bool isFinished);
 
 	bool					m_isChangedState;
+	bool					m_isFinishedAction;
 
 	Vec2					m_position;
 	StateNinja				m_state;
-
 	Map<StateNinja, Animate*>		m_animate;
 };
 
